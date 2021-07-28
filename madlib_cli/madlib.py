@@ -23,11 +23,11 @@ def merge(string,list):
     return new_string
 
 
-def main():
+def main(path):
 
     print("""Hello, you should enter a series of words depending on the type of word (can be adgective, verb, noun etc..), and the algroithm will place those words in a text and will show the super funny output on the screen\n""")
 
-    madlib_text = read_template('assets/test.txt')
+    madlib_text = read_template(path)
 
     parsed_string, all_words = parse_template(madlib_text)
 
@@ -35,12 +35,12 @@ def main():
     print(all_words)
 
     list_word_input = []
-    for i in range(0,len(all_words)):
-        word = input('Please write the words you want to fill ')
+    for i in all_words:
+        word = input('Please write the ' + i +  ' you want to fill ')
         list_word_input.append(word)
 
     print(merge(parsed_string,list_word_input))
 
 if __name__ == "__main__":
-    main()
+    main('assets/madlib.txt')
 
